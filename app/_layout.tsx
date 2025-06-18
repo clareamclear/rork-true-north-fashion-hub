@@ -5,7 +5,6 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "(tabs)",
 };
 
@@ -39,13 +38,23 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <Stack
-      screenOptions={{
-        headerBackTitle: "Back",
-      }}
-    >
+    <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+      <Stack.Screen 
+        name="occasions" 
+        options={{ 
+          headerShown: true,
+          title: "Occasions",
+        }} 
+      />
+      <Stack.Screen 
+        name="brand-details" 
+        options={{ 
+          headerShown: true,
+          title: "Brand Details",
+        }} 
+      />
     </Stack>
   );
 }
